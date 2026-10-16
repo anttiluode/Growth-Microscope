@@ -64,7 +64,7 @@ Run `npm run bench` to reproduce. A simple material-only predictor can nearly ma
 | Fork | 0.951 | 0.942 | 0.984 | 0.992 |
 | Cross | 0.825 | **0.849** | 0.888 | 0.999 |
 
-These are **one deterministic lattice**, 12 correlated regions and chosen endpoint configurations, not an estimated generalization distribution. The adjoint's advantage is expected because it receives held-out unablated dynamics that the pure train fingerprint does not. The expected next test is held-out demand families, multiple topology seeds, causal region discovery independent of rectangular bins, and interventions on nonlinear recurrent states.
+**A sharper negative finding:** moved-endpoint generalization gets worse with prolonged growth. The minimum held-out resistance occurs at step 10 for Bridge (5.727 vs 10.101 at step 320) and Fork (6.407 vs 9.746), and at step 5 for Cross (10.747 vs 14.530). These minima were found *post hoc on the held-out curves*, so they are not deployable early-stopping rules without a separate validation split. They demonstrate how quickly task-specialized conductance can become brittle under small endpoint shifts.\n\nThese are **one deterministic lattice**, 12 correlated regions and chosen endpoint configurations, not an estimated generalization distribution. The adjoint's advantage is expected because it receives held-out unablated dynamics that the pure train fingerprint does not. The expected next test is held-out demand families, multiple topology seeds, causal region discovery independent of rectangular bins, and interventions on nonlinear recurrent states.
 
 ## Relation to yesterday's work
 
