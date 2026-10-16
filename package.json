@@ -1,0 +1,9 @@
+{
+  "name":"growth-microscope",
+  "version":"0.1.0",
+  "private":true,
+  "type":"module",
+  "description":"Causal microscope for task-grown conductive networks",
+  "scripts":{"test":"node --test tests/*.test.js","bench":"node benchmark.js"},
+  "engines":{"node":">=20"}
+}
