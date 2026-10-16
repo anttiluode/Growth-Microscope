@@ -1,0 +1,478 @@
+{
+  "protocol": "growth-microscope-gate3-v1",
+  "steps": 320,
+  "armPairing": [
+    "specialist",
+    "diverse"
+  ],
+  "test": "12 of the frozen 24 disjoint sweepPairs; never used for clustering or fitting",
+  "training": "Three original training stimulus configurations only, exact half-edge finite cuts",
+  "groups": "Balanced 12-way functional kmeans on standardized 3D causal edge signatures, geometry excluded",
+  "diagnostics": "Held-out SINGLE edge cuts chosen by trained material ranking plus deterministic evenly spaced IDs",
+  "caveats": [
+    "Same synthetic Kirchhoff task family and fixed graph; no semantic neuron claims",
+    "High-material-biased intervention sample, not random independent draws",
+    "All grouping controls share the same training causal measurements",
+    "Simple gradient and physical measurements have privileged known solver access",
+    "12 frozen procedural test pairs are public and selected before scoring",
+    "Only one fixed network and deterministic clustering per task/arm; no uncertainty intervals"
+  ],
+  "cases": [
+    {
+      "task": "bridge",
+      "arm": "specialist",
+      "selectedStep": 10,
+      "probeCount": 49,
+      "scores": {
+        "Material only": {
+          "pearson": 0.875606067872018,
+          "rmse": 0.026807060135005955,
+          "top5": 2
+        },
+        "Mean train flow": {
+          "pearson": 0.8667217428863914,
+          "rmse": 0.02743750915620816,
+          "top5": 2
+        },
+        "Train derivative": {
+          "pearson": 0.8350523201631184,
+          "rmse": 0.030962471968851154,
+          "top5": 2
+        },
+        "Functional groups": {
+          "pearson": 0.8673652538363865,
+          "rmse": 0.026805764620516342,
+          "top5": 2
+        },
+        "Material bins groups": {
+          "pearson": 0.8239779245748874,
+          "rmse": 0.03167680785392051,
+          "top5": 2
+        },
+        "Flow bins groups": {
+          "pearson": 0.8239779245748874,
+          "rmse": 0.03167680785392051,
+          "top5": 2
+        },
+        "Rectangles groups": {
+          "pearson": 0.8818221916502306,
+          "rmse": 0.025991395219804463,
+          "top5": 2
+        },
+        "Shuffled groups": {
+          "pearson": 0.8638956533769568,
+          "rmse": 0.024035576699855045,
+          "top5": 2
+        }
+      },
+      "coherence": {
+        "Functional": 0.011783679574962323,
+        "Material bins": 0.011465082429225473,
+        "Flow bins": 0.011465082429225473,
+        "Rectangles": 0.017216340626712057,
+        "Shuffled": 0.026348607060923797
+      },
+      "randomSummary": {
+        "n": 20,
+        "medianRmse": 0.024420000644845286,
+        "minRmse": 0.02312524669387577,
+        "maxRmse": 0.026998921091893457,
+        "randomBeatingFunctional": 19
+      },
+      "groupSizes": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        14,
+        14
+      ]
+    },
+    {
+      "task": "bridge",
+      "arm": "diverse",
+      "selectedStep": 10,
+      "probeCount": 49,
+      "scores": {
+        "Material only": {
+          "pearson": 0.8786570401871437,
+          "rmse": 0.025235706234104094,
+          "top5": 2
+        },
+        "Mean train flow": {
+          "pearson": 0.8621914765239457,
+          "rmse": 0.02694863802762869,
+          "top5": 1
+        },
+        "Train derivative": {
+          "pearson": 0.8023554303335647,
+          "rmse": 0.0318080123757928,
+          "top5": 1
+        },
+        "Functional groups": {
+          "pearson": 0.8578520531944596,
+          "rmse": 0.028372271295864688,
+          "top5": 2
+        },
+        "Material bins groups": {
+          "pearson": 0.8531653235108495,
+          "rmse": 0.02905007036708175,
+          "top5": 2
+        },
+        "Flow bins groups": {
+          "pearson": 0.8422904419505143,
+          "rmse": 0.030168700768595902,
+          "top5": 2
+        },
+        "Rectangles groups": {
+          "pearson": 0.8910600089689537,
+          "rmse": 0.024505436965880426,
+          "top5": 2
+        },
+        "Shuffled groups": {
+          "pearson": 0.8552548011023186,
+          "rmse": 0.022228520991155926,
+          "top5": 2
+        }
+      },
+      "coherence": {
+        "Functional": 0.01083123814187701,
+        "Material bins": 0.01088628654105199,
+        "Flow bins": 0.01053203026189849,
+        "Rectangles": 0.016042926557011002,
+        "Shuffled": 0.023177978243001416
+      },
+      "randomSummary": {
+        "n": 20,
+        "medianRmse": 0.022713056697871208,
+        "minRmse": 0.020923463229963395,
+        "maxRmse": 0.024474104607110376,
+        "randomBeatingFunctional": 20
+      },
+      "groupSizes": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        14,
+        14
+      ]
+    },
+    {
+      "task": "fork",
+      "arm": "specialist",
+      "selectedStep": 10,
+      "probeCount": 50,
+      "scores": {
+        "Material only": {
+          "pearson": 0.7921397933604691,
+          "rmse": 0.02718591620292575,
+          "top5": 1
+        },
+        "Mean train flow": {
+          "pearson": 0.8141262955248876,
+          "rmse": 0.0249894587521254,
+          "top5": 2
+        },
+        "Train derivative": {
+          "pearson": 0.7953806018323961,
+          "rmse": 0.028734523457848403,
+          "top5": 1
+        },
+        "Functional groups": {
+          "pearson": 0.8162293984501684,
+          "rmse": 0.026444482697597704,
+          "top5": 3
+        },
+        "Material bins groups": {
+          "pearson": 0.7904517916775077,
+          "rmse": 0.029324973251904023,
+          "top5": 1
+        },
+        "Flow bins groups": {
+          "pearson": 0.7895139496648444,
+          "rmse": 0.02936435468703934,
+          "top5": 1
+        },
+        "Rectangles groups": {
+          "pearson": 0.8027952076510771,
+          "rmse": 0.025390288358518257,
+          "top5": 1
+        },
+        "Shuffled groups": {
+          "pearson": 0.7991963582423247,
+          "rmse": 0.024937982915372116,
+          "top5": 1
+        }
+      },
+      "coherence": {
+        "Functional": 0.018692587245719223,
+        "Material bins": 0.02122345476621632,
+        "Flow bins": 0.021287950567280948,
+        "Rectangles": 0.029321991162609577,
+        "Shuffled": 0.034654639060340976
+      },
+      "randomSummary": {
+        "n": 20,
+        "medianRmse": 0.025878654458563403,
+        "minRmse": 0.024937982915372116,
+        "maxRmse": 0.027517023265654514,
+        "randomBeatingFunctional": 14
+      },
+      "groupSizes": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        14,
+        14
+      ]
+    },
+    {
+      "task": "fork",
+      "arm": "diverse",
+      "selectedStep": 40,
+      "probeCount": 49,
+      "scores": {
+        "Material only": {
+          "pearson": 0.873582061179373,
+          "rmse": 0.027515978248660308,
+          "top5": 2
+        },
+        "Mean train flow": {
+          "pearson": 0.8765866242907234,
+          "rmse": 0.025809297678947594,
+          "top5": 3
+        },
+        "Train derivative": {
+          "pearson": 0.808003850879664,
+          "rmse": 0.03417692319241093,
+          "top5": 2
+        },
+        "Functional groups": {
+          "pearson": 0.8518709909011789,
+          "rmse": 0.030040166420309627,
+          "top5": 2
+        },
+        "Material bins groups": {
+          "pearson": 0.8656463563232218,
+          "rmse": 0.028947730024970468,
+          "top5": 2
+        },
+        "Flow bins groups": {
+          "pearson": 0.8530984818901444,
+          "rmse": 0.031052374290358207,
+          "top5": 2
+        },
+        "Rectangles groups": {
+          "pearson": 0.8600670721233794,
+          "rmse": 0.026968102795051706,
+          "top5": 1
+        },
+        "Shuffled groups": {
+          "pearson": 0.8432561055799938,
+          "rmse": 0.028159494629458964,
+          "top5": 1
+        }
+      },
+      "coherence": {
+        "Functional": 0.02159379430037396,
+        "Material bins": 0.022790510465000302,
+        "Flow bins": 0.022661007103532617,
+        "Rectangles": 0.03404125900432493,
+        "Shuffled": 0.04054427143370917
+      },
+      "randomSummary": {
+        "n": 20,
+        "medianRmse": 0.028629663930190483,
+        "minRmse": 0.02623890955935083,
+        "maxRmse": 0.03035566985873979,
+        "randomBeatingFunctional": 18
+      },
+      "groupSizes": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        14,
+        14
+      ]
+    },
+    {
+      "task": "cross",
+      "arm": "specialist",
+      "selectedStep": 10,
+      "probeCount": 50,
+      "scores": {
+        "Material only": {
+          "pearson": 0.8903358009063201,
+          "rmse": 0.02382972864048851,
+          "top5": 1
+        },
+        "Mean train flow": {
+          "pearson": 0.9025724340520404,
+          "rmse": 0.02161842159687713,
+          "top5": 3
+        },
+        "Train derivative": {
+          "pearson": 0.9086204594847285,
+          "rmse": 0.022503750825719857,
+          "top5": 2
+        },
+        "Functional groups": {
+          "pearson": 0.9025455550444708,
+          "rmse": 0.0232662268074021,
+          "top5": 1
+        },
+        "Material bins groups": {
+          "pearson": 0.9003497227710185,
+          "rmse": 0.023993737182891394,
+          "top5": 1
+        },
+        "Flow bins groups": {
+          "pearson": 0.9003511849954378,
+          "rmse": 0.02399304439926909,
+          "top5": 1
+        },
+        "Rectangles groups": {
+          "pearson": 0.8878839569983645,
+          "rmse": 0.022747319525315012,
+          "top5": 2
+        },
+        "Shuffled groups": {
+          "pearson": 0.9142071895122277,
+          "rmse": 0.020160826184843657,
+          "top5": 3
+        }
+      },
+      "coherence": {
+        "Functional": 0.024102124827410604,
+        "Material bins": 0.020981260090228705,
+        "Flow bins": 0.021002054255555794,
+        "Rectangles": 0.042257923353600964,
+        "Shuffled": 0.03722092610908412
+      },
+      "randomSummary": {
+        "n": 20,
+        "medianRmse": 0.02211267664124235,
+        "minRmse": 0.020160826184843657,
+        "maxRmse": 0.023504849370692353,
+        "randomBeatingFunctional": 19
+      },
+      "groupSizes": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        14,
+        14
+      ]
+    },
+    {
+      "task": "cross",
+      "arm": "diverse",
+      "selectedStep": 10,
+      "probeCount": 51,
+      "scores": {
+        "Material only": {
+          "pearson": 0.8941685264638691,
+          "rmse": 0.020834094248849112,
+          "top5": 1
+        },
+        "Mean train flow": {
+          "pearson": 0.8970615079995393,
+          "rmse": 0.019207373376869206,
+          "top5": 2
+        },
+        "Train derivative": {
+          "pearson": 0.8790324685048974,
+          "rmse": 0.024552125000911782,
+          "top5": 1
+        },
+        "Functional groups": {
+          "pearson": 0.8910382501386975,
+          "rmse": 0.023329762683599525,
+          "top5": 1
+        },
+        "Material bins groups": {
+          "pearson": 0.8962088038338231,
+          "rmse": 0.02379751459599787,
+          "top5": 1
+        },
+        "Flow bins groups": {
+          "pearson": 0.8986036606331099,
+          "rmse": 0.024074060608867718,
+          "top5": 1
+        },
+        "Rectangles groups": {
+          "pearson": 0.8911047076733813,
+          "rmse": 0.019029171132993038,
+          "top5": 2
+        },
+        "Shuffled groups": {
+          "pearson": 0.9070376713207486,
+          "rmse": 0.017929529125353845,
+          "top5": 3
+        }
+      },
+      "coherence": {
+        "Functional": 0.023571510622210464,
+        "Material bins": 0.019445274631861718,
+        "Flow bins": 0.01868179892632177,
+        "Rectangles": 0.034491711016075385,
+        "Shuffled": 0.0313328101185064
+      },
+      "randomSummary": {
+        "n": 20,
+        "medianRmse": 0.018726059719983083,
+        "minRmse": 0.01769621000394302,
+        "maxRmse": 0.02100990175416775,
+        "randomBeatingFunctional": 20
+      },
+      "groupSizes": [
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        15,
+        14,
+        14
+      ]
+    }
+  ]
+}

@@ -64,7 +64,7 @@ Run `npm run bench` to reproduce. A simple material-only predictor can nearly ma
 | Fork | 0.951 | 0.942 | 0.984 | 0.992 |
 | Cross | 0.825 | **0.849** | 0.888 | 0.999 |
 
-**A sharper negative finding:** moved-endpoint generalization gets worse with prolonged growth. The minimum held-out resistance occurs at step 10 for Bridge (5.727 vs 10.101 at step 320) and Fork (6.407 vs 9.746), and at step 5 for Cross (10.747 vs 14.530). These minima were found *post hoc on the held-out curves*, so they are not deployable early-stopping rules without a separate validation split. They demonstrate how quickly task-specialized conductance can become brittle under small endpoint shifts.\n\nThese are **one deterministic lattice**, 12 correlated regions and chosen endpoint configurations, not an estimated generalization distribution. The adjoint's advantage is expected because it receives held-out unablated dynamics that the pure train fingerprint does not. The expected next test is held-out demand families, multiple topology seeds, causal region discovery independent of rectangular bins, and interventions on nonlinear recurrent states.
+These are **one deterministic lattice**, 12 correlated regions and chosen endpoint configurations, not an estimated generalization distribution. The adjoint's advantage is expected because it receives held-out unablated dynamics that the pure train fingerprint does not. The expected next test is held-out demand families, multiple topology seeds, causal region discovery independent of rectangular bins, and interventions on nonlinear recurrent states.
 
 ## Relation to yesterday's work
 
@@ -103,3 +103,35 @@ Lower means better transport. **Validation-based stopping beats the final 320-st
 Gate 2 tests a held-out 50% region-conductance cut on **24 unseen endpoint pairs** using only predictions created from the *original training pairs*. Four training-only explanations compete: exact finite **train causal effect**, regional material, training current flow, and first-order training sensitivity. Scalar predictor gains are calibrated on the training cut effects, **never** on test. The browser **Commit predictions** step saves these estimates plus a digest of the precise conductance state. **Reveal new tests** then measures actual cut effects and scores correlation, RMSE, and top-3 region overlap; it rejects intervening changes to the state. The gate never reports statistical significance from 12 predefined spatial regions.
 
 The input task, physics equations, and rectangular intervention regions are still supplied. This is a controlled causal-attribution laboratory, not discovery of semantic neurons. An improved next gate should learn candidate groups from unlabeled behavior and test whether they predict intervention effects beyond simpler structural and gradient models in unrelated task families; strong topology optimizers and cost-matched adaptive routing remain necessary baselines.
+
+## Gate 3 (October 16): Discover candidate mechanisms before naming them
+
+**[Open Gate 3 — functional groups](https://anttiluode.github.io/Growth-Microscope/gate3.html)** | run locally with `python -m http.server 8000` and visit `/gate3.html`.
+
+Gate 2 prescribed 12 rectangular spatial regions. Gate 3 instead asks whether **edge groups inferred from causal behavior**, with no spatial positions in the clustering input, explain unseen interventions better than simpler models. **It does not assume that they do.**
+
+### Frozen protocol
+
+1. Grow the same fixed 11×9 lattice under **specialist** or **diverse** policies, choose a checkpoint on validation only (as Gate 2).
+2. With the medium frozen, halve each of its **178 recruited edge conductances** separately (scaffold `g0=0.06` untouched), and record the effect on resistance under each of **3 TRAIN source/sink configurations**. These 3-dimensional *finite causal signatures*, not the edge coordinates or rectangular region names, feed balanced deterministic 12-way k-means. Each discovered group has 14–15 edges to prevent tiny singleton groups. Group colors can identify noncontiguous edges: colors are not necessarily physical circuits.
+3. For every edge, predict its future finite-cut damage using (i) group average training harm per unit grown material, or (ii) material-only, train flow and exact training first derivative. Use *the same* observed training-edge effects to calibrate controls. Compare groupings obtained from causal signatures, weight ranks, flow ranks, the old rectangular regions and shuffled edge assignments. Freeze all predictions before any test cut.
+4. Select approximately 49–51 edge probes using **30 largest training-material edges plus 24 evenly spaced edge IDs**, with duplicate IDs removed. This favors material-heavy edges; it is not an unbiased test-edge sample. On each selected edge, halve conductance and score the resistance difference on **12 previously excluded deterministic source/sink test pairs**. No held-out case or gradient is used to fit the predictions. Score RMSE, Pearson correlation, top-five effect retrieval and within-group standard deviation on the same held-out probe edges. Test score computation is in a separate explicit Reveal step in the browser.
+5. Evaluate **20 shuffled partitions**, each with the identical training causal signatures for calibration, and report how many have lower prediction RMSE than the functionally discovered grouping. The random baseline is decided before reveal and has no further test-time optimization.
+
+From the terminal:
+
+```bash
+npm test                         # 30 checks including previous two gates
+npm run bench:gate3               # both growth arms × all three tasks
+python -m http.server 8000        # navigate to /gate3.html
+```
+
+The frozen deterministic output from `npm run bench:gate3` is committed as [`results/gate3-reference.json`](results/gate3-reference.json); the complete browser receipt additionally exports the original per-edge probe fingerprints, memberships, predicted harms and measured effects.
+
+### What the reference run establishes—and does not
+
+At the validation-selected checkpoints for all six combinations (3 tasks × 2 growth arms), discovered causal groups are **informative but do not win the lowest held-out RMSE**. The simpler material, flow, spatial, or shuffled groups can do at least as well. A high correlation can coexist with a calibration error; inspecting both RMSE and top-five coverage is essential. The graph morphology and the easy physics baselines already explain much of the held-out damage.
+
+The fixed-Gate-2 checkpoints are often early because late specialized structures perform poorly on shifted terminal validation cases; group evolution plots track the growth of edges **retrospectively assigned** to the selected checkpoint's groups, not persistent cluster identities across training. The empirical test is confined to Kirchhoff routing with known physics and closely related endpoint shifts. This is not evidence that Goodfire's semantic-neuron results generalize to networks grown in this way.
+
+**Future honest gate:** use mechanisms whose roles genuinely change with context (e.g., nonlinear state-dependent routing), then ask whether unsupervised causal groups transfer to a separately defined task family and outperform a physically informed task-agnostic model at matched measurement cost. First verify that the hidden mechanism is identifiable from the allowed probes.
