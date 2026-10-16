@@ -74,3 +74,32 @@ Run `npm run bench` to reproduce. A simple material-only predictor can nearly ma
 - **Goodfire** motivates tracking native components and causal roles before replacing them with abstract features. This is a controllable illustration, not a replication of a trained vision network or evidence about neuron interpretability.
 
 **The scientific claim is deliberately narrow:** exact physics plus controlled interventions can determine when an explanation of a grown network predicts unseen related consequences—and when a simpler explanation does just as well.
+
+## Gate 2 — prospective model selection and causal explanation transfer (October 16)
+
+**[Open Gate 2 in the browser](https://anttiluode.github.io/Growth-Microscope/gate2.html)** or run `npm run bench:gate2` and `npm test`.
+
+V1 reported a large, visually legible specialization/versatility trade-off but inspected a single three-pair held-out set while describing it. Gate 2 removes that selection mistake with a **predefined train / augmentation / validation / stress / random-sweep separation**. The original V1 held-out pairs now become **validation only**. Three new stress pairs and a deterministic seed-20261016 24-pair disjoint distribution form independent final tests. The source code contains every endpoint, so blinding here is *procedural*, not cryptographic.
+
+Two networks start with identical weak scaffolds and use the **same 24-unit material cap**, learning rate and exactly **three Kirchhoff solves per training update**:
+
+* `specialist`: repeated exact three original training pairs;
+* `diverse`: deterministically cycles through 7 training/augmentation endpoint pairs, drawing 3 per update. It has broader experience but not more field solves.
+
+The selection protocol is fixed before test: evaluate checkpoints at 0, 10, 20, 40, 80, 160, 320 steps (up to selected horizon), choose **lowest validation resistance**, freeze the chosen conductances, and only then evaluate test resistance. Thus a favorable early step is no longer cherry-picked from test. Both arms also receive an equal-*actual*-material uniform control. The uniform baseline remains a weak optimization competitor and no result claims superior topology optimization.
+
+### Frozen reference observations (320-step runs)
+
+| Need | Specialist validation-picked step | Specialist 24-case test ↓ | Specialist 320-step test ↓ | Diverse picked step | Diverse 24-case test ↓ | Diverse 320-step test ↓ | Equal-material uniform test ↓ |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Bridge | 10 | 11.062 | 17.224 | 10 | 10.298 | 14.673 | **9.937** |
+| Fork | 10 | **9.238** | 13.522 | 40 | 10.470 | 11.098 | 10.022 |
+| Cross | 10 | 14.493 | 15.618 | 10 | 12.391 | 14.522 | **11.715** |
+
+Lower means better transport. **Validation-based stopping beats the final 320-step specialist on all three tasks**, confirming measurable late specialization on this selected demand distribution, but neither diverse training nor early stopping consistently beats uniform conductive material on the broad unseen split. These are three deterministic toy tasks, not three random seeds or an empirical confidence interval.
+
+### Damage explanations, genuinely frozen before reveal
+
+Gate 2 tests a held-out 50% region-conductance cut on **24 unseen endpoint pairs** using only predictions created from the *original training pairs*. Four training-only explanations compete: exact finite **train causal effect**, regional material, training current flow, and first-order training sensitivity. Scalar predictor gains are calibrated on the training cut effects, **never** on test. The browser **Commit predictions** step saves these estimates plus a digest of the precise conductance state. **Reveal new tests** then measures actual cut effects and scores correlation, RMSE, and top-3 region overlap; it rejects intervening changes to the state. The gate never reports statistical significance from 12 predefined spatial regions.
+
+The input task, physics equations, and rectangular intervention regions are still supplied. This is a controlled causal-attribution laboratory, not discovery of semantic neurons. An improved next gate should learn candidate groups from unlabeled behavior and test whether they predict intervention effects beyond simpler structural and gradient models in unrelated task families; strong topology optimizers and cost-matched adaptive routing remain necessary baselines.

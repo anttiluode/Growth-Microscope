@@ -1,0 +1,593 @@
+{
+  "protocol": "Growth Microscope Gate 2",
+  "version": 2,
+  "steps": 320,
+  "design": "Specialist versus rotating seven-pair diverse training, exactly three Kirchhoff solves per gradient step; independent three-case validation chooses from fixed checkpoints; unseen three-stress and 24-pair synthetic sweep evaluate once.",
+  "warnings": [
+    "Synthetic, hand-designed endpoints; deterministic, not randomized statistical replication",
+    "The 12 spatial region groups are predefined",
+    "Public source implies procedural, not cryptographic blinding",
+    "Uniform baseline is simple but material matched; matched-purpose topology optimization not yet compared"
+  ],
+  "tasks": [
+    {
+      "task": "bridge",
+      "protocol": "growth-microscope-gate2-v1",
+      "steps": 320,
+      "gateRules": [
+        "Train: exact original pairs; diverse: cycling 3 of 7 train/augmentation pairs, identical 3 field solves per update",
+        "Checkpoint picked by validation only, BEFORE test scoring",
+        "Independent hidden test pairs never used for growth or selection",
+        "Causal harm predictors and gains use TRAIN pairs only; test ablations occur after commit"
+      ],
+      "specialist": {
+        "selected": {
+          "step": 10,
+          "train": 4.865919030148085,
+          "validation": 5.726613232834824,
+          "test": 10.661152864987091,
+          "sweep": 11.062104098104312,
+          "material": 24
+        },
+        "final": {
+          "step": 320,
+          "train": 4.344681271260411,
+          "validation": 10.101466442119097,
+          "test": 18.88748112100104,
+          "sweep": 17.223862474624184,
+          "material": 24
+        }
+      },
+      "diverse": {
+        "selected": {
+          "step": 10,
+          "train": 5.080642979329453,
+          "validation": 5.91976790899811,
+          "test": 10.058660876209593,
+          "sweep": 10.298481405820587,
+          "material": 24
+        },
+        "final": {
+          "step": 320,
+          "train": 4.63398489884241,
+          "validation": 7.389828140845221,
+          "test": 16.55896230424112,
+          "sweep": 14.672807340231783,
+          "material": 23.999999999999996
+        }
+      },
+      "equalMaterialUniformTest": {
+        "specialist": {
+          "stress": 10.408891517308966,
+          "sweep": 9.937202036450003
+        },
+        "diverse": {
+          "stress": 10.408891517308966,
+          "sweep": 9.937202036450003
+        }
+      },
+      "damagePrediction": {
+        "specialist": {
+          "Train causal": {
+            "pearson": 0.9523469025269693,
+            "rmse": 0.13316948009820895,
+            "top3": 3
+          },
+          "Material": {
+            "pearson": 0.9608740452019959,
+            "rmse": 0.11002606979830937,
+            "top3": 3
+          },
+          "Train flow": {
+            "pearson": 0.9615067714886631,
+            "rmse": 0.09753112743733053,
+            "top3": 3
+          },
+          "Train gradient": {
+            "pearson": 0.9534547224468295,
+            "rmse": 0.12544639476108854,
+            "top3": 3
+          }
+        },
+        "diverse": {
+          "Train causal": {
+            "pearson": 0.9232017900906837,
+            "rmse": 0.15991087836947246,
+            "top3": 3
+          },
+          "Material": {
+            "pearson": 0.9348357007276993,
+            "rmse": 0.130626132794228,
+            "top3": 3
+          },
+          "Train flow": {
+            "pearson": 0.9355256540558343,
+            "rmse": 0.11680168005443076,
+            "top3": 3
+          },
+          "Train gradient": {
+            "pearson": 0.9244771040692229,
+            "rmse": 0.15039492033521407,
+            "top3": 3
+          }
+        }
+      },
+      "frames": {
+        "specialist": [
+          {
+            "step": 0,
+            "train": 15.90739015617216,
+            "validation": 15.139614487504598,
+            "material": 11.569999999999995
+          },
+          {
+            "step": 10,
+            "train": 4.865919030148085,
+            "validation": 5.726613232834824,
+            "material": 24
+          },
+          {
+            "step": 20,
+            "train": 4.549600998799602,
+            "validation": 7.248273559616456,
+            "material": 24
+          },
+          {
+            "step": 40,
+            "train": 4.472359873180779,
+            "validation": 7.483350803627029,
+            "material": 24
+          },
+          {
+            "step": 80,
+            "train": 4.3755182127761945,
+            "validation": 8.983766342892164,
+            "material": 24
+          },
+          {
+            "step": 160,
+            "train": 4.344681195767994,
+            "validation": 10.101473455582587,
+            "material": 24
+          },
+          {
+            "step": 320,
+            "train": 4.344681271260411,
+            "validation": 10.101466442119097,
+            "material": 24
+          }
+        ],
+        "diverse": [
+          {
+            "step": 0,
+            "train": 15.90739015617216,
+            "validation": 15.139614487504598,
+            "material": 11.569999999999995
+          },
+          {
+            "step": 10,
+            "train": 5.080642979329453,
+            "validation": 5.91976790899811,
+            "material": 24
+          },
+          {
+            "step": 20,
+            "train": 4.69937096824774,
+            "validation": 6.592080641741153,
+            "material": 24
+          },
+          {
+            "step": 40,
+            "train": 4.662511241096219,
+            "validation": 7.409217381217568,
+            "material": 23.999999999999996
+          },
+          {
+            "step": 80,
+            "train": 4.635601784922303,
+            "validation": 7.067480253796003,
+            "material": 24
+          },
+          {
+            "step": 160,
+            "train": 4.617643184458464,
+            "validation": 6.732098767350131,
+            "material": 24
+          },
+          {
+            "step": 320,
+            "train": 4.63398489884241,
+            "validation": 7.389828140845221,
+            "material": 23.999999999999996
+          }
+        ]
+      }
+    },
+    {
+      "task": "fork",
+      "protocol": "growth-microscope-gate2-v1",
+      "steps": 320,
+      "gateRules": [
+        "Train: exact original pairs; diverse: cycling 3 of 7 train/augmentation pairs, identical 3 field solves per update",
+        "Checkpoint picked by validation only, BEFORE test scoring",
+        "Independent hidden test pairs never used for growth or selection",
+        "Causal harm predictors and gains use TRAIN pairs only; test ablations occur after commit"
+      ],
+      "specialist": {
+        "selected": {
+          "step": 10,
+          "train": 6.3702005759537546,
+          "validation": 6.407345294970894,
+          "test": 11.146710520935269,
+          "sweep": 9.237574510433927,
+          "material": 24
+        },
+        "final": {
+          "step": 320,
+          "train": 5.850278660614321,
+          "validation": 9.74631339518939,
+          "test": 16.912538209928606,
+          "sweep": 13.522094084204934,
+          "material": 24
+        }
+      },
+      "diverse": {
+        "selected": {
+          "step": 40,
+          "train": 6.200806251223456,
+          "validation": 6.292416386169749,
+          "test": 13.186971672918498,
+          "sweep": 10.470320220163735,
+          "material": 24
+        },
+        "final": {
+          "step": 320,
+          "train": 6.0753648133452565,
+          "validation": 6.470822789210542,
+          "test": 14.07855031307985,
+          "sweep": 11.098313219617687,
+          "material": 24
+        }
+      },
+      "equalMaterialUniformTest": {
+        "specialist": {
+          "stress": 10.88656443480916,
+          "sweep": 10.021520553736991
+        },
+        "diverse": {
+          "stress": 10.88656443480916,
+          "sweep": 10.021520553736991
+        }
+      },
+      "damagePrediction": {
+        "specialist": {
+          "Train causal": {
+            "pearson": 0.9328189900692451,
+            "rmse": 0.10519146783633945,
+            "top3": 2
+          },
+          "Material": {
+            "pearson": 0.9372591140636557,
+            "rmse": 0.08933172143766811,
+            "top3": 2
+          },
+          "Train flow": {
+            "pearson": 0.9446956852688753,
+            "rmse": 0.08146215804489348,
+            "top3": 2
+          },
+          "Train gradient": {
+            "pearson": 0.933090980093176,
+            "rmse": 0.09691315025584546,
+            "top3": 2
+          }
+        },
+        "diverse": {
+          "Train causal": {
+            "pearson": 0.9735266517834846,
+            "rmse": 0.09145517144145668,
+            "top3": 3
+          },
+          "Material": {
+            "pearson": 0.9770478244674303,
+            "rmse": 0.08365835692378401,
+            "top3": 3
+          },
+          "Train flow": {
+            "pearson": 0.9737414130550774,
+            "rmse": 0.08342761596943671,
+            "top3": 3
+          },
+          "Train gradient": {
+            "pearson": 0.9689376322326321,
+            "rmse": 0.09201029236237891,
+            "top3": 3
+          }
+        }
+      },
+      "frames": {
+        "specialist": [
+          {
+            "step": 0,
+            "train": 16.959800788489474,
+            "validation": 14.719547902700533,
+            "material": 11.569999999999995
+          },
+          {
+            "step": 10,
+            "train": 6.3702005759537546,
+            "validation": 6.407345294970894,
+            "material": 24
+          },
+          {
+            "step": 20,
+            "train": 6.118926231474712,
+            "validation": 6.730759451399215,
+            "material": 24
+          },
+          {
+            "step": 40,
+            "train": 5.9718821343128,
+            "validation": 7.511007697184442,
+            "material": 24
+          },
+          {
+            "step": 80,
+            "train": 5.85245795022329,
+            "validation": 9.559080643588665,
+            "material": 24
+          },
+          {
+            "step": 160,
+            "train": 5.850278635888959,
+            "validation": 9.746312844682809,
+            "material": 23.999999999999996
+          },
+          {
+            "step": 320,
+            "train": 5.850278660614321,
+            "validation": 9.74631339518939,
+            "material": 24
+          }
+        ],
+        "diverse": [
+          {
+            "step": 0,
+            "train": 16.959800788489474,
+            "validation": 14.719547902700533,
+            "material": 11.569999999999995
+          },
+          {
+            "step": 10,
+            "train": 6.653254729457907,
+            "validation": 6.527585650478008,
+            "material": 24
+          },
+          {
+            "step": 20,
+            "train": 6.326991139532653,
+            "validation": 6.345027441181624,
+            "material": 24
+          },
+          {
+            "step": 40,
+            "train": 6.200806251223456,
+            "validation": 6.292416386169749,
+            "material": 24
+          },
+          {
+            "step": 80,
+            "train": 6.121677909136361,
+            "validation": 6.57170174346482,
+            "material": 23.999999999999996
+          },
+          {
+            "step": 160,
+            "train": 6.0819683120198516,
+            "validation": 6.493476005604263,
+            "material": 24
+          },
+          {
+            "step": 320,
+            "train": 6.0753648133452565,
+            "validation": 6.470822789210542,
+            "material": 24
+          }
+        ]
+      }
+    },
+    {
+      "task": "cross",
+      "protocol": "growth-microscope-gate2-v1",
+      "steps": 320,
+      "gateRules": [
+        "Train: exact original pairs; diverse: cycling 3 of 7 train/augmentation pairs, identical 3 field solves per update",
+        "Checkpoint picked by validation only, BEFORE test scoring",
+        "Independent hidden test pairs never used for growth or selection",
+        "Causal harm predictors and gains use TRAIN pairs only; test ablations occur after commit"
+      ],
+      "specialist": {
+        "selected": {
+          "step": 10,
+          "train": 7.753880632716166,
+          "validation": 13.475174168860843,
+          "test": 16.741036496739635,
+          "sweep": 14.493057422896797,
+          "material": 23.999999999999996
+        },
+        "final": {
+          "step": 320,
+          "train": 7.566451573977993,
+          "validation": 14.5296221300494,
+          "test": 16.92630654500008,
+          "sweep": 15.618227891324604,
+          "material": 24
+        }
+      },
+      "diverse": {
+        "selected": {
+          "step": 10,
+          "train": 7.988178164990804,
+          "validation": 11.706036946087861,
+          "test": 14.005230583632882,
+          "sweep": 12.390759815904863,
+          "material": 24
+        },
+        "final": {
+          "step": 320,
+          "train": 7.67934652766264,
+          "validation": 14.450767548404102,
+          "test": 16.768311169720015,
+          "sweep": 14.521846524470691,
+          "material": 24
+        }
+      },
+      "equalMaterialUniformTest": {
+        "specialist": {
+          "stress": 12.682309996444666,
+          "sweep": 11.71514363480384
+        },
+        "diverse": {
+          "stress": 12.682309996444666,
+          "sweep": 11.715143634803837
+        }
+      },
+      "damagePrediction": {
+        "specialist": {
+          "Train causal": {
+            "pearson": 0.9351562011053959,
+            "rmse": 0.06916178239868356,
+            "top3": 2
+          },
+          "Material": {
+            "pearson": 0.9071571800492363,
+            "rmse": 0.07501783599457053,
+            "top3": 2
+          },
+          "Train flow": {
+            "pearson": 0.8582932004162607,
+            "rmse": 0.08701840108008713,
+            "top3": 2
+          },
+          "Train gradient": {
+            "pearson": 0.9156965878092073,
+            "rmse": 0.07302433821416546,
+            "top3": 2
+          }
+        },
+        "diverse": {
+          "Train causal": {
+            "pearson": 0.86704887375239,
+            "rmse": 0.1113510547129401,
+            "top3": 1
+          },
+          "Material": {
+            "pearson": 0.8792920993959057,
+            "rmse": 0.10866381373281338,
+            "top3": 1
+          },
+          "Train flow": {
+            "pearson": 0.7836228513357901,
+            "rmse": 0.1391840207901191,
+            "top3": 1
+          },
+          "Train gradient": {
+            "pearson": 0.8380897016610805,
+            "rmse": 0.12037538861876,
+            "top3": 1
+          }
+        }
+      },
+      "frames": {
+        "specialist": [
+          {
+            "step": 0,
+            "train": 18.34013994458717,
+            "validation": 17.651870925142113,
+            "material": 11.569999999999995
+          },
+          {
+            "step": 10,
+            "train": 7.753880632716166,
+            "validation": 13.475174168860843,
+            "material": 23.999999999999996
+          },
+          {
+            "step": 20,
+            "train": 7.6250494482974105,
+            "validation": 14.023233244599595,
+            "material": 24
+          },
+          {
+            "step": 40,
+            "train": 7.575009862046924,
+            "validation": 14.522658955907536,
+            "material": 23.99999999999999
+          },
+          {
+            "step": 80,
+            "train": 7.566454552415035,
+            "validation": 14.52892418493202,
+            "material": 24
+          },
+          {
+            "step": 160,
+            "train": 7.566451574015137,
+            "validation": 14.529619654005028,
+            "material": 24
+          },
+          {
+            "step": 320,
+            "train": 7.566451573977993,
+            "validation": 14.5296221300494,
+            "material": 24
+          }
+        ],
+        "diverse": [
+          {
+            "step": 0,
+            "train": 18.34013994458717,
+            "validation": 17.651870925142113,
+            "material": 11.569999999999995
+          },
+          {
+            "step": 10,
+            "train": 7.988178164990804,
+            "validation": 11.706036946087861,
+            "material": 24
+          },
+          {
+            "step": 20,
+            "train": 7.729322095503051,
+            "validation": 13.920325620517037,
+            "material": 24
+          },
+          {
+            "step": 40,
+            "train": 7.710273761968035,
+            "validation": 14.370958308481537,
+            "material": 24
+          },
+          {
+            "step": 80,
+            "train": 7.696294984072106,
+            "validation": 14.448999417191994,
+            "material": 23.999999999999996
+          },
+          {
+            "step": 160,
+            "train": 7.672759667828146,
+            "validation": 14.429579529908183,
+            "material": 23.999999999999996
+          },
+          {
+            "step": 320,
+            "train": 7.67934652766264,
+            "validation": 14.450767548404102,
+            "material": 24
+          }
+        ]
+      }
+    }
+  ]
+}
